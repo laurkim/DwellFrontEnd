@@ -3,6 +3,11 @@ import { connect }  from 'react-redux';
 import { registerUser, loginUser } from '../Redux/actions/index.js';
 
 class UserAuthorization extends Component {
+  componentDidMount() {
+    if (localStorage.token === undefined) {
+      this.props.history.push('/')
+    }
+  }
 
   render() {
     return (
