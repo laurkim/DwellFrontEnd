@@ -16,11 +16,7 @@ export function registerUser(registrationInput, history) {
     .then(res => res.json())
     .then(json => {
       localStorage.setItem("token", json.token);
-      debugger
       dispatch({ type: 'CREATE_USER', payload: json.user.username });
-      console.log("acccount created!!!!");
-      console.log("redirecting");
-      console.log("------");
       history.push('/login');
     })
   }
@@ -40,10 +36,8 @@ export function loginUser(loginInput, history) {
     })
     .then(res => res.json())
     .then(json => {
-      debugger
       localStorage.setItem("token", json.token);
       dispatch({ type: 'LOGIN_USER', payload: json.user.username });
-      console.log("user logged in!!!!");
       history.push('/home');
     })
   }
