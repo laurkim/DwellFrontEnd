@@ -23,7 +23,7 @@ class UserAuthorization extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({fetchWorkspaces: fetchWorkspaces}, dispatch);
+  return bindActionCreators({ fetchWorkspaces: fetchWorkspaces }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(UserAuthorization);

@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { bookWorkspace } from '../Redux/actions/index.js';
 
 class WorkspaceDetail extends Component {
   constructor(props) {
     super(props)
+  }
+
+  addBooking = event => {
+    console.log("props r", this.props);
+    this.props.bookWorkspace(this.props.workspace.id);
   }
 
   render() {
@@ -14,9 +22,16 @@ class WorkspaceDetail extends Component {
         <p>{address_one}</p>
         <p>{city}</p>
         <p>{phone}</p>
+        <button onClick={this.addBooking}>Book Space</button>
       </div>
     )
   }
 };
 
-export default WorkspaceDetail;
+function mapDispatchToProps(dispatch) {
+  return {
+    bookWorkspace: workspaceId => dispatch(bookWorkspace(workspaceId))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(WorkspaceDetail);
