@@ -10,6 +10,10 @@ class WorkspaceDetail extends Component {
     return (
       <div>
         <h3>{name}</h3>
+        <img className="workspace" src={image_url} alt="{name} image"/>
+        <p>{address_one}</p>
+        <p>{city}</p>
+        <p>{phone}</p>
       </div>
     )
   }
