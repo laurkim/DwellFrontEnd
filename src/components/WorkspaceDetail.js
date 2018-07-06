@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { bookWorkspace } from '../Redux/actions/index.js';
 
 class WorkspaceDetail extends Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   addBooking = event => {
     console.log("props r", this.props);
-    this.props.bookWorkspace(this.props.workspace.id);
+    let startTime = 10
+    let endTime = 11
+    this.props.bookWorkspace(this.props.workspace.id, startTime, endTime);
   }
 
   render() {
@@ -30,7 +31,7 @@ class WorkspaceDetail extends Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    bookWorkspace: workspaceId => dispatch(bookWorkspace(workspaceId))
+    bookWorkspace: (workspaceId, startTime, endTime) => dispatch(bookWorkspace(workspaceId, startTime, endTime))
   }
 }
 

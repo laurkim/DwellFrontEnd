@@ -62,13 +62,15 @@ export function fetchWorkspaces(dispatch) {
 };
 
 // Create a new booking for a workspace
-export function bookWorkspace(workspaceId) {
+export function bookWorkspace(workspaceId, startTime, endTime) {
   return (dispatch) => {
     return fetch(bookingsURL, {
       method: "POST",
       headers: Headers(),
       body: JSON.stringify({
-        workspaceId: workspaceId
+        workspaceId,
+        startTime,
+        endTime
       })
     })
     .then(res => res.json())

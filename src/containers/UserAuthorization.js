@@ -16,6 +16,7 @@ class UserAuthorization extends Component {
     return (
       <div>
         <h1>Inside User Auth Component</h1>
+        <h2>oMG</h2>
         <WorkspaceList />
       </div>
     )
