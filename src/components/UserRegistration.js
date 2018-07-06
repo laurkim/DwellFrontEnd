@@ -72,14 +72,10 @@ class UserRegistration extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return state;
-}
-
 const mapDispatchToProps = (dispatch) => {
   return {
     registerUser: (registrationInput, history) => dispatch(registerUser(registrationInput, history))
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserRegistration);
+export default connect(null, mapDispatchToProps)(UserRegistration);

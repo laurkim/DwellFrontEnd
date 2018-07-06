@@ -1,6 +1,7 @@
 import { Headers } from '../../adapters/Headers.js';
 const registrationURL = "http://localhost:3000/api/v1/register";
 const loginURL = "http://localhost:3000/api/v1/login";
+const workspaceURL = "http://localhost:3000/api/v1/workspaces";
 
 // Based on User Input from the Registration Form, make a request to the Rails API to create a new user
 export function registerUser(registrationInput, history) {
@@ -46,8 +47,14 @@ export function loginUser(loginInput, history) {
 };
 
 // Fetch all existing workspaces from Rails API to render for a user to choose from
-export function fetchWorkspaces() {
+export function fetchWorkspaces(dispatch) {
   return (dispatch) => {
-    return fetch()
+    return fetch(workspaceURL)
+    .then(res => res.json())
+    .then(json => {
+      debugger
+      console.log("workspaces fetched");
+      dispatch({ type: "GET_WORKSPACES", payload: json})
+    })
   }
 };

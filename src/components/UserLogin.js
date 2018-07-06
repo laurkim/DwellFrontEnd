@@ -29,14 +29,10 @@ const UserLogin = (props) => {
 
 }
 
-function mapStateToProps(state) {
-  return state;
-}
-
 function mapDispatchToProps(dispatch) {
   return {
     loginUser: (loginInput, history) => dispatch(loginUser(loginInput, history))
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserLogin);
+export default connect(null, mapDispatchToProps)(UserLogin);
