@@ -52,8 +52,6 @@ export function fetchWorkspaces(dispatch) {
     return fetch(workspaceURL)
     .then(res => res.json())
     .then(json => {
-      debugger
-      console.log("workspaces fetched");
       dispatch({ type: "GET_WORKSPACES", payload: json})
     })
   }

@@ -1,6 +1,4 @@
-const defaultState = {
-  workspaces: []
-};
+const defaultState = [];
 
 export function workspaceReducer(state = defaultState, action) {
   switch (action.type) {

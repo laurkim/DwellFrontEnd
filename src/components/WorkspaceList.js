@@ -1,7 +1,22 @@
 import React, { Component } from 'react';
+import { connect }  from 'react-redux';
+import WorkspaceDetail from './WorkspaceDetail.js';
 
-class WorkspaceList extends Component {
-
+const WorkspaceList = props => {
+  const workspaces = props.workspaces.map(workspace => {
+    return <WorkspaceDetail key={workspace.id} workspace={workspace} />
+  });
+  return (
+    <div>
+      {props.workspaces.length > 0 ? workspaces : null}
+    </div>
+  )
 }
 
-export default WorkspaceList;
+function mapStateToProps(state) {
+  return {
+    workspaces: state.workspaces
+  }
+};
+
+export default connect(mapStateToProps)(WorkspaceList);
