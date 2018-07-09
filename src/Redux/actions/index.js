@@ -61,7 +61,7 @@ export function fetchWorkspaces(dispatch) {
   }
 };
 
-// Create a new booking for a workspace
+// Create a new booking for a workspace for a specific user
 export function bookWorkspace(workspaceId, startTime, endTime) {
   return (dispatch) => {
     return fetch(bookingsURL, {

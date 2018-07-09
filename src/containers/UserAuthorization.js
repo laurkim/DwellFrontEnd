@@ -7,7 +7,7 @@ import WorkspaceList from '../components/WorkspaceList.js';
 class UserAuthorization extends Component {
   componentDidMount() {
     if (localStorage.token === undefined) {
-      this.props.history.push('/')
+      this.props.history.push('/');
     }
     this.props.fetchWorkspaces();
   }
@@ -15,8 +15,6 @@ class UserAuthorization extends Component {
   render() {
     return (
       <div>
-        <h1>Inside User Auth Component</h1>
-        <h2>oMG</h2>
         <WorkspaceList />
       </div>
     )

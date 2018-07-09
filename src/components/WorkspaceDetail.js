@@ -8,7 +8,6 @@ class WorkspaceDetail extends Component {
   }
 
   addBooking = event => {
-    console.log("props r", this.props);
     let startTime = 10
     let endTime = 11
     this.props.bookWorkspace(this.props.workspace.id, startTime, endTime);
@@ -19,10 +18,13 @@ class WorkspaceDetail extends Component {
     return (
       <div>
         <h3>{name}</h3>
-        <img className="workspace" src={image_url} alt="{name} image"/>
+        <img className="workspace" src={image_url} alt="{name}"/>
         <p>{address_one}</p>
-        <p>{city}</p>
+        { address_two.length > 0 ? <p>{address_two}</p> : null }
+        <p>{city} {zip_code}</p>
         <p>{phone}</p>
+        <a href={yelp_url}>Business Details</a>
+        <br/>
         <button onClick={this.addBooking}>Book Space</button>
       </div>
     )

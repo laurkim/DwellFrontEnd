@@ -13,7 +13,7 @@ const configureStore = () => {
     composeEnhancer(
       applyMiddleware(
         routerMiddleware(history), // for dispatching history actions
-        thunk              // ... other middlewares ...
+        thunk // for making fetch calls to Rails API
       ),
     ),
   )

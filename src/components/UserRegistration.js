@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect }  from 'react-redux';
 import { registerUser } from '../Redux/actions/index.js';
+import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 class UserRegistration extends Component {
   constructor(props) {
@@ -44,28 +47,64 @@ class UserRegistration extends Component {
 
   render() {
     return (
-      <div>
-        <h2>User Registration</h2>
-        <form onSubmit={this.registerUser}>
-          <label>First Name: </label>
-          <input type="text" value={this.state.first_name} name="first_name" placeholder="First Name" onChange={this.handleChange}/>
+      <div className="user-forms">
+        <Typography variant="display2" gutterBottom style={{ fontFamily: 'Raleway', paddingTop: '10%'}}>
+          Register for DWELL
+        </Typography>
+        <form autoComplete="off" onSubmit={this.registerUser} >
+          <TextField
+            name="first_name"
+            label="First Name"
+            value={this.state.first_name}
+            onChange={this.handleChange}
+            style={{ marginLeft: '10px', marginRight: '10px', width: 200 }}
+          />
           <br/>
-          <label>Last Name: </label>
-          <input type="text" value={this.state.last_name} name="last_name" placeholder="Last Name" onChange={this.handleChange}/>
+          <TextField
+            name="last_name"
+            label="Last Name"
+            value={this.state.last_name}
+            onChange={this.handleChange}
+            style={{ marginLeft: '10px', marginRight: '10px', width: 200 }}
+          />
           <br/>
-          <label>Username: </label>
-          <input type="text" value={this.state.username} name="username" placeholder="Username" onChange={this.handleChange}/>
+          <TextField
+            name="username"
+            label="Username"
+            value={this.state.username}
+            onChange={this.handleChange}
+            style={{ marginLeft: '10px', marginRight: '10px', width: 200 }}
+          />
           <br/>
-          <label>Password: </label>
-          <input type="password" value={this.state.password} name="password" placeholder="Password" onChange={this.handleChange}/>
+          <TextField
+            type="password"
+            name="password"
+            label="Password"
+            value={this.state.password}
+            onChange={this.handleChange}
+            style={{ marginLeft: '10px', marginRight: '10px', width: 200 }}
+          />
           <br/>
-          <label>Password Confirmation: </label>
-          <input type="password" value={this.state.password_confirmation} name="password_confirmation" placeholder="Password Confirmation" onChange={this.handleChange}/>
+          <TextField
+            type="password"
+            name="password_confirmation"
+            label="Password Confirmation"
+            value={this.state.password_confirmation}
+            onChange={this.handleChange}
+            style={{ marginLeft: '10px', marginRight: '10px', width: 200 }}
+          />
           <br/>
-          <label>Email: </label>
-          <input type="text" value={this.state.email} name="email" placeholder="Email" onChange={this.handleChange}/>
+          <TextField
+            name="email"
+            label="Email"
+            value={this.state.email}
+            onChange={this.handleChange}
+            style={{ marginLeft: '10px', marginRight: '10px', width: 200 }}
+          />
           <br/>
-          <button type="submit">Create User</button>
+          <Button variant="contained" type="submit" style={{ backgroundColor: '#B2DFDB', color: '#FFFFFF', marginTop: '20px', fontFamily: 'Raleway'}}>
+            Create Account
+          </Button>
         </form>
       </div>
     )
