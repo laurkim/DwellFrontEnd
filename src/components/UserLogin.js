@@ -36,8 +36,9 @@ class UserLogin extends Component {
         <Typography variant="display2" gutterBottom style={{ fontFamily: 'Raleway', paddingTop: '10%'}}>
           Login to DWELL
         </Typography>
-        <form autoComplete="off" onSubmit={this.loginUser} >
+        <form onSubmit={this.loginUser} >
           <TextField
+            autocomplete="off"
             name="username"
             label="Username"
             value={this.state.username}
@@ -46,6 +47,7 @@ class UserLogin extends Component {
           />
           <br/>
           <TextField
+            autocomplete="off"
             type="password"
             name="password"
             label="Password"

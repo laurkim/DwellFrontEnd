@@ -51,8 +51,9 @@ class UserRegistration extends Component {
         <Typography variant="display2" gutterBottom style={{ fontFamily: 'Raleway', paddingTop: '10%'}}>
           Register for DWELL
         </Typography>
-        <form autoComplete="off" onSubmit={this.registerUser} >
+        <form onSubmit={this.registerUser} >
           <TextField
+            autocomplete="off"
             name="first_name"
             label="First Name"
             value={this.state.first_name}
@@ -61,6 +62,7 @@ class UserRegistration extends Component {
           />
           <br/>
           <TextField
+            autocomplete="off"
             name="last_name"
             label="Last Name"
             value={this.state.last_name}
@@ -69,6 +71,7 @@ class UserRegistration extends Component {
           />
           <br/>
           <TextField
+            autocomplete="off"
             name="username"
             label="Username"
             value={this.state.username}
@@ -77,6 +80,7 @@ class UserRegistration extends Component {
           />
           <br/>
           <TextField
+            autocomplete="off"
             type="password"
             name="password"
             label="Password"
@@ -86,6 +90,7 @@ class UserRegistration extends Component {
           />
           <br/>
           <TextField
+            autocomplete="off"
             type="password"
             name="password_confirmation"
             label="Password Confirmation"
@@ -95,6 +100,7 @@ class UserRegistration extends Component {
           />
           <br/>
           <TextField
+            autocomplete="off"
             name="email"
             label="Email"
             value={this.state.email}
