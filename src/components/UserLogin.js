@@ -33,10 +33,10 @@ class UserLogin extends Component {
   render() {
     return (
       <div className="user-forms">
-        <Typography variant="display2" gutterBottom style={{ fontFamily: 'Raleway', paddingTop: '10%'}}>
+        <Typography variant="display2" gutterBottom style={{ fontFamily: 'Raleway', paddingTop: '10%' }}>
           Login to DWELL
         </Typography>
-        <form onSubmit={this.loginUser} >
+        <form onSubmit={this.loginUser} style={{ paddingTop: '2%' }} >
           <TextField
             autocomplete="off"
             name="username"

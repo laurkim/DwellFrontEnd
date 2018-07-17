@@ -51,7 +51,7 @@ class UserRegistration extends Component {
         <Typography variant="display2" gutterBottom style={{ fontFamily: 'Raleway', paddingTop: '10%'}}>
           Register for DWELL
         </Typography>
-        <form onSubmit={this.registerUser} >
+        <form onSubmit={this.registerUser} style={{ paddingTop: '2%' }}>
           <TextField
             autocomplete="off"
             name="first_name"
