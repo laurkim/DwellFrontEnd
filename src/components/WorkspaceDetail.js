@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bookWorkspace } from '../Redux/actions/index.js';
-import { withStyles } from '@material-ui/core/styles';
-import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
 import DoneAllIcon from '@material-ui/icons/DoneAll';
-// import verified from '../verified.png';
 
 class WorkspaceDetail extends Component {
   constructor(props) {
@@ -16,7 +12,6 @@ class WorkspaceDetail extends Component {
   }
 
   addBooking = () => {
-    console.log("add booking");
     let startTime = 10
     let endTime = 11
     this.props.bookWorkspace(this.props.workspace.id, startTime, endTime);
