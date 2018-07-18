@@ -75,7 +75,11 @@ export function bookWorkspace(workspaceId, startTime, endTime) {
     })
     .then(res => res.json())
     .then(json => {
-      debugger
+      if (json.message === undefined) {
+        alert("You've booked this workspace!");
+      } else {
+        alert(json.message)
+      }
     })
   }
 }
