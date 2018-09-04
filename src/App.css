@@ -27,5 +27,5 @@
 .card-img {
   width: 350px !important;
   height: 196.88px !important;
-  object-fit: scale-down;
+  object-fit: cover;
 }
