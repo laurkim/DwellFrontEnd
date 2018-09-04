@@ -8,19 +8,19 @@ const SplashPage = (props) => {
   const registerLink = props => <Link to="/register" {...props} />
   const loginLink = props => <Link to="/login" {...props} />
   return (
-    <div className="splash">
-      <Typography variant="display4" style={{ fontFamily: 'Raleway', fontSize: '90px', paddingTop: '10%'}}>
+    <div id="splash">
+      <Typography id="title" variant="display4">
         DWELL
       </Typography>
-      <Typography variant="body1" gutterBottom style={{ fontFamily: 'Open Sans', fontStyle: 'italic', marginTop: '0.8%'}}>
+      <Typography id="description" variant="body1" gutterBottom>
         Book a space to work in any coffee shop in Manhattan.
       </Typography>
       <div className="buttons">
-        <Button component={registerLink} variant="outlined" size="medium" style={{ fontFamily: 'Raleway', fontSize: '15px' }}>
+        <Button className="splash-button" component={registerLink} variant="outlined" size="medium">
           Register
         </Button>
         <div className="divider"></div>
-        <Button component={loginLink} variant="outlined" size="medium" style={{ fontFamily: 'Raleway', fontSize: '15px' }}>
+        <Button className="splash-button" component={loginLink} variant="outlined" size="medium">
           Login
         </Button>
       </div>

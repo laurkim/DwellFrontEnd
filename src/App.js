@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import './App.css';
 import SplashPage from './containers/SplashPage.js'
 import UserAuthorization from './containers/UserAuthorization.js';
 import UserRegistration from './components/UserRegistration.js';

@@ -1,12 +1,12 @@
 body {
   margin: 0;
   padding-top: 0;
-  height: 100%;
+  height: 100vh;
   font-family: 'Raleway';
   text-align: center;
 }
 
 html {
   margin: 0;
-  height: 100%;
+  height: 100vh;
 }

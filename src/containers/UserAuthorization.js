@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect }  from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchWorkspaces } from '../Redux/actions/index.js';
+import '../App.css';
 import WorkspaceList from '../components/WorkspaceList.js';
 
 class UserAuthorization extends Component {
