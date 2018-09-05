@@ -41,14 +41,13 @@ export function loginUser(loginInput, history) {
     })
     .then(res => res.json())
     .then(json => {
-      if (json.token) {
-        localStorage.setItem("token", json.token);
-        dispatch({ type: 'LOGIN_USER', payload: json.user.username });
-        history.push('/home');
-      } else {
-        alert(json.errors);
-        history.push('/');
-      }
+      localStorage.setItem("token", json.token);
+      dispatch({ type: 'LOGIN_USER', payload: json.user.username });
+      history.push('/home');
+    })
+    .catch(error => {
+      alert("Invalid Login Credentials")
+      history.push('/')
     })
   }
 };

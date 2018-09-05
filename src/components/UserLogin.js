@@ -39,7 +39,7 @@ class UserLogin extends Component {
         </Typography>
         <form onSubmit={this.loginUser} style={{ paddingTop: '2%' }} >
           <TextField
-            autocomplete="off"
+            autoComplete="off"
             name="username"
             label="Username"
             value={this.state.username}
@@ -48,7 +48,7 @@ class UserLogin extends Component {
           />
           <br/>
           <TextField
-            autocomplete="off"
+            autoComplete="off"
             type="password"
             name="password"
             label="Password"
