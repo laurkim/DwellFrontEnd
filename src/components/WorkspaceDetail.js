@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bookWorkspace } from '../Redux/actions/index.js';
-import BookingForm from './BookingForm.js';
+// import { connect } from 'react-redux';
+// import { bookWorkspace } from '../Redux/actions/index.js';
 import '../App.css'
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -71,7 +70,12 @@ class WorkspaceDetail extends Component {
             onClose={this.handleClose}
             >
             <div className="modal">
-              <BookingForm workspace={this.props.workspace} />
+              <Typography variant="title" id="modal-title">
+                Text in a modal
+              </Typography>
+              <Typography variant="subheading" id="simple-modal-description">
+                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+              </Typography>
             </div>
           </Modal>
           <CardMedia
@@ -91,10 +95,12 @@ class WorkspaceDetail extends Component {
   }
 };
 
-function mapDispatchToProps(dispatch) {
-  return {
-    bookWorkspace: (workspaceId, startTime, endTime) => dispatch(bookWorkspace(workspaceId, startTime, endTime))
-  }
-}
+export default WorkspaceDetail;
 
-export default connect(null, mapDispatchToProps)(WorkspaceDetail);
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     bookWorkspace: (workspaceId, startTime, endTime) => dispatch(bookWorkspace(workspaceId, startTime, endTime))
+//   }
+// }
+
+// export default connect(null, mapDispatchToProps)(WorkspaceDetail);

@@ -1,15 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bookWorkspace } from '../Redux/actions/index.js';
+import React from 'react';
 
-class BookingForm extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      startTime: null,
-      endTime: null
-    }
+const BookingForm extends Component {
+  addBooking = () => {
+    this.props.bookWorkspace(this.props.workspace.id, this.state.startTime, this.endTime);
   }
 }
 
