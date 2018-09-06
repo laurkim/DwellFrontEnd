@@ -96,7 +96,7 @@ class WorkspaceDetail extends Component {
           />
           <CardContent>
             <Typography component="p">
-                Address: {address_one}
+                {address_one}
                 <br />
                 {city}, {zip_code}
             </Typography>
