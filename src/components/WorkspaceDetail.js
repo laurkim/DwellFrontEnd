@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bookWorkspace } from '../Redux/actions/index.js';
+import BookingForm from './BookingForm.js';
 import '../App.css'
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -23,16 +24,9 @@ class WorkspaceDetail extends Component {
     super(props);
 
     this.state = {
-      expanded: false,
       open: false
     }
   }
-
-  handleExpandClick = () => {
-    this.setState({
-      expanded: !this.state.expanded
-    })
-  };
 
   addBooking = () => {
     let startTime = 10
@@ -41,20 +35,16 @@ class WorkspaceDetail extends Component {
   }
 
   handleOpen = () => {
-    this.setState({ open: true });
+    this.setState({
+      open: true
+    });
   };
 
   handleClose = () => {
-    this.setState({ open: false });
+    this.setState({
+      open: false
+    });
   };
-
-  renderBookingForm = event => {
-    const { currentTarget } = event;
-    this.setState(({
-      anchorEl: currentTarget,
-      opener: !this.state.opener,
-    }));
-  }
 
   render() {
     const { name, image_url, yelp_url, rating, address_one, address_two, city, zip_code, latitude, longitude, phone } = this.props.workspace
@@ -81,12 +71,7 @@ class WorkspaceDetail extends Component {
             onClose={this.handleClose}
             >
             <div className="modal">
-              <Typography variant="title" id="modal-title">
-                Text in a modal
-              </Typography>
-              <Typography variant="subheading" id="simple-modal-description">
-                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-              </Typography>
+              <BookingForm workspace={this.props.workspace} />
             </div>
           </Modal>
           <CardMedia
@@ -96,9 +81,9 @@ class WorkspaceDetail extends Component {
           />
           <CardContent>
             <Typography component="p">
-                {address_one}
-                <br />
-                {city}, {zip_code}
+              {address_one}
+              <br />
+              {city}, {zip_code}
             </Typography>
           </CardContent>
           </Card>

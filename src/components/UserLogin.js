@@ -33,31 +33,31 @@ class UserLogin extends Component {
 
   render() {
     return (
-      <div className="user-forms">
-        <Typography variant="display2" gutterBottom style={{ fontFamily: 'Raleway', paddingTop: '10%' }}>
+      <div className="user-form">
+        <Typography className="form-title" variant="display2" gutterBottom>
           Login to DWELL
         </Typography>
-        <form onSubmit={this.loginUser} style={{ paddingTop: '2%' }} >
+        <form onSubmit={this.loginUser} className="form-break">
           <TextField
+            className="form-input"
             autoComplete="off"
             name="username"
             label="Username"
             value={this.state.username}
             onChange={this.handleChange}
-            style={{ marginLeft: '10px', marginRight: '10px', width: 200 }}
           />
           <br/>
           <TextField
+            className="form-input"
             autoComplete="off"
             type="password"
             name="password"
             label="Password"
             value={this.state.password}
             onChange={this.handleChange}
-            style={{ marginLeft: '10px', marginRight: '10px', width: 200 }}
           />
           <br/>
-          <Button variant="contained" type="submit" style={{ backgroundColor: '#B2DFDB', color: '#FFFFFF', marginTop: '20px', fontFamily: 'Raleway'}}>
+          <Button className="submit-button" variant="contained" type="submit">
             Login
           </Button>
         </form>

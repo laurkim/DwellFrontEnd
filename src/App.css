@@ -1,7 +1,28 @@
-.user-forms {
+.user-form {
   width: 100vw;
   height: 100vh;
   position: relative;
+}
+
+.user-form .form-title {
+  font-family: 'Raleway';
+  padding-top: 30vh;
+}
+
+.user-form .form-break {
+   padding-top: 2vh;
+}
+
+.user-form .form-input {
+  margin: 0vw 10vw;
+  width: 200px;
+}
+
+.user-form .submit-button {
+  background-color: #B2DFDB;
+  color: #FFFFFF;
+  margin-top: 3vh;
+  font-family: 'Raleway'
 }
 
 #workspace-container {

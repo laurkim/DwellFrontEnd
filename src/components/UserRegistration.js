@@ -48,68 +48,68 @@ class UserRegistration extends Component {
 
   render() {
     return (
-      <div className="user-forms">
-        <Typography variant="display2" gutterBottom style={{ fontFamily: 'Raleway', paddingTop: '10%'}}>
+      <div className="user-form">
+        <Typography className="form-title" variant="display2" gutterBottom>
           Register for DWELL
         </Typography>
-        <form onSubmit={this.registerUser} style={{ paddingTop: '2%' }}>
+        <form onSubmit={this.registerUser} className="form-break">
           <TextField
+            className="form-input"
             autocomplete="off"
             name="first_name"
             label="First Name"
             value={this.state.first_name}
             onChange={this.handleChange}
-            style={{ marginLeft: '10px', marginRight: '10px', width: 200 }}
           />
           <br/>
           <TextField
+            className="form-input"
             autocomplete="off"
             name="last_name"
             label="Last Name"
             value={this.state.last_name}
             onChange={this.handleChange}
-            style={{ marginLeft: '10px', marginRight: '10px', width: 200 }}
           />
           <br/>
           <TextField
+            className="form-input"
             autocomplete="off"
             name="username"
             label="Username"
             value={this.state.username}
             onChange={this.handleChange}
-            style={{ marginLeft: '10px', marginRight: '10px', width: 200 }}
           />
           <br/>
           <TextField
+            className="form-input"
             autocomplete="off"
             type="password"
             name="password"
             label="Password"
             value={this.state.password}
             onChange={this.handleChange}
-            style={{ marginLeft: '10px', marginRight: '10px', width: 200 }}
           />
           <br/>
           <TextField
+            className="form-input"
             autocomplete="off"
             type="password"
             name="password_confirmation"
             label="Password Confirmation"
             value={this.state.password_confirmation}
             onChange={this.handleChange}
-            style={{ marginLeft: '10px', marginRight: '10px', width: 200 }}
           />
           <br/>
           <TextField
+            className="form-input"
             autocomplete="off"
             name="email"
             label="Email"
             value={this.state.email}
             onChange={this.handleChange}
-            style={{ marginLeft: '10px', marginRight: '10px', width: 200 }}
           />
           <br/>
-          <Button variant="contained" type="submit" style={{ backgroundColor: '#B2DFDB', color: '#FFFFFF', marginTop: '20px', fontFamily: 'Raleway'}}>
+          <Button className="submit-button" variant="contained" type="submit">
             Create Account
           </Button>
         </form>
