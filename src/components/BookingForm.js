@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Calendar from 'react-calendar';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -9,12 +10,13 @@ class BookingForm extends Component {
     super(props)
 
     this.state = {
+      date: new Date(),
       startTime: null,
       endTime: null
     }
   }
 
-  handleChange = event => {
+  handleTimeChange = event => {
     this.setState({
       [event.target.name]: event.target.value
     })
@@ -23,7 +25,18 @@ class BookingForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const { startTime, endTime } = this.state;
-    this.props.addBooking(startTime, endTime);
+    let bookingMonth = this.state.date.getMonth() + 1; // Months begin at 0 with Date
+    let bookingDay = this.state.date.getDay();
+    let bookingYear = this.state.date.getFullYear();
+    let bookingStart = `${bookingMonth}/${bookingDay}/${bookingYear} ${startTime}`;
+    let bookingEnd = `${bookingMonth}/${bookingDay}/${bookingYear} ${endTime}`;
+    this.props.addBooking(bookingStart, bookingEnd);
+  }
+
+  handleDateChange = date => {
+    this.setState({
+      date
+    })
   }
 
   render() {
@@ -33,6 +46,10 @@ class BookingForm extends Component {
           Book a one hour slot to work here!
         </Typography>
         <form onSubmit={this.handleSubmit} className="form-break">
+          <Calendar
+            onChange={this.handleDateChange}
+            value={this.state.date}
+          />
           <TextField
             className="form-input"
             autocomplete="off"
@@ -40,7 +57,7 @@ class BookingForm extends Component {
             label="Start Time"
             placeholder="M/DD/YY 9:00 AM"
             value={this.state.startTime}
-            onChange={this.handleChange}
+            onChange={this.handleTimeChange}
             />
           <br/>
           <TextField
@@ -50,7 +67,7 @@ class BookingForm extends Component {
             label="End Time"
             placeholder="M/DD/YY 10:00 AM"
             value={this.state.endTime}
-            onChange={this.handleChange}
+            onChange={this.handleTimeChange}
             />
           <br/>
           <Button className="submit-button" variant="contained" type="submit">
