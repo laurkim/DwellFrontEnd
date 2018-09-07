@@ -45,8 +45,9 @@ class BookingForm extends Component {
         <Typography className="confirm-booking">
           Book a one hour slot to work here!
         </Typography>
-        <form onSubmit={this.handleSubmit} className="form-break">
+        <form onSubmit={this.handleSubmit} className="booking-form">
           <Calendar
+            className="booking-calendar"
             onChange={this.handleDateChange}
             value={this.state.date}
           />
@@ -55,7 +56,7 @@ class BookingForm extends Component {
             autocomplete="off"
             name="startTime"
             label="Start Time"
-            placeholder="M/DD/YY 9:00 AM"
+            placeholder="H:MM AM"
             value={this.state.startTime}
             onChange={this.handleTimeChange}
             />
@@ -65,7 +66,7 @@ class BookingForm extends Component {
             autocomplete="off"
             name="endTime"
             label="End Time"
-            placeholder="M/DD/YY 10:00 AM"
+            placeholder="H:MM AM"
             value={this.state.endTime}
             onChange={this.handleTimeChange}
             />
