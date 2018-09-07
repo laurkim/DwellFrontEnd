@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-// import { bookWorkspace } from '../Redux/actions/index.js';
+import { connect } from 'react-redux';
+import { bookWorkspace } from '../Redux/actions/index.js';
+import BookingForm from './BookingForm.js';
 import '../App.css'
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -11,12 +12,13 @@ import CardContent from '@material-ui/core/CardContent';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
+// import TextField from '@material-ui/core/TextField';
+// import Button from '@material-ui/core/Button';
 // import FavoriteIcon from '@material-ui/icons/Favorite';
 // import ShareIcon from '@material-ui/icons/Share';
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Modal from '@material-ui/core/Modal';
-import Button from '@material-ui/core/Button';
 
 class WorkspaceDetail extends Component {
   constructor(props) {
@@ -27,10 +29,10 @@ class WorkspaceDetail extends Component {
     }
   }
 
-  addBooking = () => {
-    let startTime = 10
-    let endTime = 11
-    this.props.bookWorkspace(this.props.workspace.id, startTime, endTime);
+  addBooking = (startTime, endTime) => {
+    let bookingStart = new Date(startTime).getTime();
+    let bookingEnd = new Date(endTime).getTime();
+    this.props.bookWorkspace(this.props.workspace.id, bookingStart, bookingEnd);
   }
 
   handleOpen = () => {
@@ -70,12 +72,7 @@ class WorkspaceDetail extends Component {
             onClose={this.handleClose}
             >
             <div className="modal">
-              <Typography variant="title" id="modal-title">
-                Text in a modal
-              </Typography>
-              <Typography variant="subheading" id="simple-modal-description">
-                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-              </Typography>
+              <BookingForm addBooking={this.addBooking} />
             </div>
           </Modal>
           <CardMedia
@@ -95,12 +92,10 @@ class WorkspaceDetail extends Component {
   }
 };
 
-export default WorkspaceDetail;
+function mapDispatchToProps(dispatch) {
+  return {
+    bookWorkspace: (workspaceId, startTime, endTime) => dispatch(bookWorkspace(workspaceId, startTime, endTime))
+  }
+}
 
-// function mapDispatchToProps(dispatch) {
-//   return {
-//     bookWorkspace: (workspaceId, startTime, endTime) => dispatch(bookWorkspace(workspaceId, startTime, endTime))
-//   }
-// }
-
-// export default connect(null, mapDispatchToProps)(WorkspaceDetail);
+export default connect(null, mapDispatchToProps)(WorkspaceDetail);

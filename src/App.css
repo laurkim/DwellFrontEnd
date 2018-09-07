@@ -10,7 +10,7 @@
 }
 
 .user-form .form-break {
-   padding-top: 2vh;
+  padding-top: 2vh;
 }
 
 .user-form .form-input {
@@ -22,7 +22,7 @@
   background-color: #B2DFDB;
   color: #FFFFFF;
   margin-top: 3vh;
-  font-family: 'Raleway'
+  font-family: 'Raleway';
 }
 
 #workspace-container {
@@ -59,4 +59,15 @@
   top: 40vh;
   width: 20vw;
   background: #FFFFFF;
+}
+
+.submit-button {
+  background-color: #B2DFDB !important;
+  color: #FFFFFF !important;
+  margin: 3vh 0vh !important;
+  font-family: 'Raleway' !important;
+}
+
+.confirm-booking {
+  font-family: 'Raleway' !important;
 }
