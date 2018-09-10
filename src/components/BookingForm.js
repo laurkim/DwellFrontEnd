@@ -16,6 +16,12 @@ class BookingForm extends Component {
     }
   }
 
+  handleDateChange = date => {
+    this.setState({
+      date
+    })
+  }
+
   handleTimeChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -33,24 +39,19 @@ class BookingForm extends Component {
     this.props.addBooking(bookingStart, bookingEnd);
   }
 
-  handleDateChange = date => {
-    this.setState({
-      date
-    })
-  }
 
   render() {
     return (
       <div>
         <Typography className="confirm-booking">
-          Book a one hour slot to work here!
+          Book a one hour slot to work!
         </Typography>
         <form onSubmit={this.handleSubmit} className="booking-form">
           <Calendar
             className="booking-calendar"
             onChange={this.handleDateChange}
             value={this.state.date}
-          />
+            />
           <TextField
             className="form-input"
             autocomplete="off"

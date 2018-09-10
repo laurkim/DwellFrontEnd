@@ -66,7 +66,7 @@ export function fetchWorkspaces(dispatch) {
 };
 
 // Create a new booking for a workspace for a specific user
-export function bookWorkspace(workspaceId, startTime, endTime) {
+export function bookWorkspace(workspaceId, startTime, endTime, callback) {
   return (dispatch) => {
     return fetch(bookingsURL, {
       method: "POST",
@@ -78,12 +78,6 @@ export function bookWorkspace(workspaceId, startTime, endTime) {
       })
     })
     .then(res => res.json())
-    .then(json => {
-      if (json.message === undefined) {
-        alert("You've booked this workspace!");
-      } else {
-        alert(json.message)
-      }
-    })
+    .then(json => callback(json))
   }
 }

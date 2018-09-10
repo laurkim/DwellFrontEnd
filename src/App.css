@@ -57,7 +57,7 @@
   position: relative;
   margin: 0 auto;
   top: 40vh;
-  width: 40vw;
+  width: 30vw;
   background: #FFFFFF;
 }
 
@@ -69,13 +69,14 @@
 }
 
 .confirm-booking {
+  padding-top: 3vh !important;
   font-family: 'Raleway' !important;
 }
 
 .booking-form {
-  padding-top: 2vh;
+  padding-top: 5vh;
 }
 
 .booking-calendar {
-  margin: 0vh 10vw;
+  margin: 0vh 5vw;
 }

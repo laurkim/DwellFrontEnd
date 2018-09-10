@@ -25,27 +25,37 @@ class WorkspaceDetail extends Component {
     super(props);
 
     this.state = {
-      open: false
+      open: false,
+      confirmed: false,
+      response: null
     }
-  }
-
-  addBooking = (startTime, endTime) => {
-    let bookingStart = new Date(startTime).getTime();
-    let bookingEnd = new Date(endTime).getTime();
-    this.props.bookWorkspace(this.props.workspace.id, bookingStart, bookingEnd);
   }
 
   handleOpen = () => {
     this.setState({
       open: true
     });
-  };
+  }
 
   handleClose = () => {
     this.setState({
       open: false
     });
-  };
+  }
+
+  addBooking = (startTime, endTime) => {
+    let bookingStart = new Date(startTime).getTime();
+    let bookingEnd = new Date(endTime).getTime();
+    this.props.bookWorkspace(this.props.workspace.id, bookingStart, bookingEnd, this.bookingComplete);
+  }
+
+  bookingComplete = response => {
+    debugger
+    this.setState({
+      confirmed: true,
+      response: response.message
+    })
+  }
 
   render() {
     const { name, image_url, yelp_url, rating, address_one, address_two, city, zip_code, latitude, longitude, phone } = this.props.workspace
@@ -72,7 +82,7 @@ class WorkspaceDetail extends Component {
             onClose={this.handleClose}
             >
             <div className="modal">
-              <BookingForm addBooking={this.addBooking} />
+              {this.state.confirmed === false ? <BookingForm addBooking={this.addBooking} confirmed={this.state.confirmed} response={this.state.response} /> : <p>{this.state.response}</p>}
             </div>
           </Modal>
           <CardMedia
@@ -94,7 +104,7 @@ class WorkspaceDetail extends Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    bookWorkspace: (workspaceId, startTime, endTime) => dispatch(bookWorkspace(workspaceId, startTime, endTime))
+    bookWorkspace: (workspaceId, startTime, endTime, callback) => dispatch(bookWorkspace(workspaceId, startTime, endTime, callback))
   }
 }
 
