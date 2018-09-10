@@ -80,3 +80,10 @@
 .booking-calendar {
   margin: 0vh 5vw;
 }
+
+.booking-message {
+  padding: 5vh 5vw;
+  font-family: 'Raleway' !important;
+  font-size: 1.5rem !important;
+  font-weight: 300 !important
+}

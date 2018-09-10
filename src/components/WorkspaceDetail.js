@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bookWorkspace } from '../Redux/actions/index.js';
 import BookingForm from './BookingForm.js';
+import BookingResponse from './BookingResponse.js';
 import '../App.css'
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -50,7 +51,6 @@ class WorkspaceDetail extends Component {
   }
 
   bookingComplete = response => {
-    debugger
     this.setState({
       confirmed: true,
       response: response.message
@@ -59,6 +59,8 @@ class WorkspaceDetail extends Component {
 
   render() {
     const { name, image_url, yelp_url, rating, address_one, address_two, city, zip_code, latitude, longitude, phone } = this.props.workspace
+    const bookingForm = <BookingForm addBooking={this.addBooking} confirmed={this.state.confirmed} response={this.state.response} />
+    const bookingMessage = <BookingResponse response={this.state.response} />
     return (
         <Card className="card">
           <CardHeader
@@ -82,7 +84,7 @@ class WorkspaceDetail extends Component {
             onClose={this.handleClose}
             >
             <div className="modal">
-              {this.state.confirmed === false ? <BookingForm addBooking={this.addBooking} confirmed={this.state.confirmed} response={this.state.response} /> : <p>{this.state.response}</p>}
+              {this.state.confirmed === false ? bookingForm : bookingMessage}
             </div>
           </Modal>
           <CardMedia
