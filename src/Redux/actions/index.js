@@ -3,7 +3,7 @@ const registrationURL = "http://localhost:3000/api/v1/register";
 const loginURL = "http://localhost:3000/api/v1/login";
 const workspaceURL = "http://localhost:3000/api/v1/workspaces";
 const bookingsURL = "http://localhost:3000/api/v1/bookings";
-
+const favoritesURL = "http://localhost:3000/api/v1/favorites";
 
 // Based on User Input from the Registration Form, make a request to the Rails API to create a new user
 export function registerUser(registrationInput, history) {
@@ -72,12 +72,32 @@ export function bookWorkspace(workspaceId, startTime, endTime, callback) {
       method: "POST",
       headers: Headers(),
       body: JSON.stringify({
-        workspaceId,
-        startTime,
-        endTime
+        booking: {
+          workspace_id: workspaceId,
+          start_time: startTime,
+          end_time: endTime
+        }
       })
     })
     .then(res => res.json())
     .then(json => callback(json))
+  }
+}
+
+// Add a workspace to a specific user's favorites (does not create a workspace booking)
+export function favoriteWorkspace(workspaceId) {
+  debugger
+  return (dispatch) => {
+    return fetch(favoritesURL, {
+      method: "POST",
+      headers: Headers(),
+      body: JSON.stringify({
+        favorite: {
+          workspace_id: workspaceId
+        }
+      })
+    })
+    .then(res => res.json())
+    .then(json => {debugger})
   }
 }
