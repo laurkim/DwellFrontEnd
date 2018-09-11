@@ -25,7 +25,7 @@ const WorkspaceList = props => {
 }
 
 function mapStateToProps(state) {
-  debugger
+  // debugger
   return {
     workspaces: state.workspaces,
     favorites: state.user.favorites

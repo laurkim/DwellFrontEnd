@@ -1,6 +1,7 @@
 import { Headers } from '../../adapters/Headers.js';
 const registrationURL = "http://localhost:3000/api/v1/register";
 const loginURL = "http://localhost:3000/api/v1/login";
+const userURL = "http://localhost:3000/api/v1/fetch_user";
 const workspaceURL = "http://localhost:3000/api/v1/workspaces";
 const bookingsURL = "http://localhost:3000/api/v1/bookings";
 const favoritesURL = "http://localhost:3000/api/v1/favorites";
@@ -21,7 +22,7 @@ export function registerUser(registrationInput, history) {
     .then(res => res.json())
     .then(json => {
       localStorage.setItem("token", json.token);
-      dispatch({ type: 'CREATE_USER', payload: json.user });
+      dispatch({ type: 'CREATE_USER', payload: json });
       history.push('/login');
     })
   }
@@ -42,7 +43,7 @@ export function loginUser(loginInput, history) {
     .then(res => res.json())
     .then(json => {
       localStorage.setItem("token", json.token);
-      dispatch({ type: 'LOGIN_USER', payload: json.user });
+      dispatch({ type: 'LOGIN_USER', payload: json });
       history.push('/home');
     })
     .catch(error => {
@@ -53,19 +54,19 @@ export function loginUser(loginInput, history) {
 };
 
 // On page refresh, make a request to the Rails API to retrieve the current user
-// export function fetchUser(jwt, history) {
-//   return (dispatch) => {
-//     return fetch(`${}/fetch_user`, {
-//       method: 'POST',
-//       headers: Headers(),
-//       body: JSON.stringify({ jwt })
-//     })
-//     .then(res => res.json())
-//     .then(user => {
-//       dispatch({ type: 'FETCH_USER', payload: user.currentUser })
-//     });
-//   };
-// };
+export function fetchUser(token) {
+  return (dispatch) => {
+    return fetch(userURL, {
+      method: 'POST',
+      headers: Headers(),
+      body: JSON.stringify({ token })
+    })
+    .then(res => res.json())
+    .then(json => {
+      dispatch({ type: 'FETCH_USER', payload: json })
+    });
+  };
+};
 
 // Fetch all existing workspaces from Rails API to render for a user to choose from
 export function fetchWorkspaces(dispatch) {

@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import { connect }  from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchWorkspaces } from '../Redux/actions/index.js';
+import { fetchUser, fetchWorkspaces } from '../Redux/actions/index.js';
 import '../App.css';
 import WorkspaceList from '../components/WorkspaceList.js';
 
 class UserAuthorization extends Component {
   componentDidMount() {
+    const history = this.props.history
     if (localStorage.token === undefined) {
-      this.props.history.push('/');
+      history.push('/');
+    } else if (localStorage.length > 0) {
+      let token = localStorage.token;
+      this.props.fetchUser(token);
     }
     this.props.fetchWorkspaces();
   }
@@ -23,7 +27,10 @@ class UserAuthorization extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchWorkspaces: fetchWorkspaces }, dispatch);
+  return {
+    fetchWorkspaces: () => dispatch(fetchWorkspaces()),
+    fetchUser: token => dispatch(fetchUser(token))
+  };
 }
 
 export default connect(null, mapDispatchToProps)(UserAuthorization);
