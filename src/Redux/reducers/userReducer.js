@@ -9,7 +9,6 @@ export function userReducer(state = defaultState, action) {
     case 'LOGIN_USER':
       return action.payload;
     case 'FETCH_USER':
-      debugger
       return action.payload;
     case 'LOGOUT_USER':
       return {};

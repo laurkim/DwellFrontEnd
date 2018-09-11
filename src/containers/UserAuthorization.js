@@ -8,12 +8,7 @@ import WorkspaceList from '../components/WorkspaceList.js';
 class UserAuthorization extends Component {
   componentDidMount() {
     const history = this.props.history
-    if (localStorage.token === undefined) {
-      history.push('/');
-    } else if (localStorage.length > 0) {
-      let token = localStorage.token;
-      this.props.fetchUser(token);
-    }
+    localStorage.length > 0 ? this.props.fetchUser() : history.push('/')
     this.props.fetchWorkspaces();
   }
 
@@ -27,10 +22,11 @@ class UserAuthorization extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return {
-    fetchWorkspaces: () => dispatch(fetchWorkspaces()),
-    fetchUser: token => dispatch(fetchUser(token))
-  };
+  // return {
+  //   fetchWorkspaces: () => dispatch(fetchWorkspaces()),
+  //   fetchUser:  => dispatch(fetchUser(token))
+  // };
+  return bindActionCreators({ fetchWorkspaces, fetchUser }, dispatch)
 }
 
 export default connect(null, mapDispatchToProps)(UserAuthorization);
