@@ -11,8 +11,8 @@ class BookingForm extends Component {
 
     this.state = {
       date: new Date(),
-      startTime: null,
-      endTime: null
+      startTime: '',
+      endTime: ''
     }
   }
 
@@ -54,7 +54,7 @@ class BookingForm extends Component {
             />
           <TextField
             className="form-input"
-            autocomplete="off"
+            autoComplete="off"
             name="startTime"
             label="Start Time"
             placeholder="H:MM AM"
@@ -64,7 +64,7 @@ class BookingForm extends Component {
           <br/>
           <TextField
             className="form-input"
-            autocomplete="off"
+            autoComplete="off"
             name="endTime"
             label="End Time"
             placeholder="H:MM AM"
