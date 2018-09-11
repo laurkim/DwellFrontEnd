@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect }  from 'react-redux';
 import { loginUser } from '../Redux/actions/index.js';
 import '../App.css';
+import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -61,6 +62,7 @@ class UserLogin extends Component {
             Login
           </Button>
         </form>
+        <p>Click <Link to="/register">here</Link> to register.</p>
       </div>
     );
   }
