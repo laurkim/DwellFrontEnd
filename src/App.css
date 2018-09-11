@@ -87,3 +87,11 @@
   font-size: 1.5rem !important;
   font-weight: 300 !important
 }
+
+.heart-icon {
+
+}
+
+.heart-icon:visited {
+  color: red !important;
+}

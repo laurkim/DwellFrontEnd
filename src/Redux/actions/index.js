@@ -21,7 +21,7 @@ export function registerUser(registrationInput, history) {
     .then(res => res.json())
     .then(json => {
       localStorage.setItem("token", json.token);
-      dispatch({ type: 'CREATE_USER', payload: json.user.username });
+      dispatch({ type: 'CREATE_USER', payload: json.user });
       history.push('/login');
     })
   }
@@ -42,7 +42,7 @@ export function loginUser(loginInput, history) {
     .then(res => res.json())
     .then(json => {
       localStorage.setItem("token", json.token);
-      dispatch({ type: 'LOGIN_USER', payload: json.user.username });
+      dispatch({ type: 'LOGIN_USER', payload: json.user });
       history.push('/home');
     })
     .catch(error => {
@@ -51,6 +51,21 @@ export function loginUser(loginInput, history) {
     })
   }
 };
+
+// On page refresh, make a request to the Rails API to retrieve the current user
+// export function fetchUser(jwt, history) {
+//   return (dispatch) => {
+//     return fetch(`${}/fetch_user`, {
+//       method: 'POST',
+//       headers: Headers(),
+//       body: JSON.stringify({ jwt })
+//     })
+//     .then(res => res.json())
+//     .then(user => {
+//       dispatch({ type: 'FETCH_USER', payload: user.currentUser })
+//     });
+//   };
+// };
 
 // Fetch all existing workspaces from Rails API to render for a user to choose from
 export function fetchWorkspaces(dispatch) {
@@ -86,7 +101,6 @@ export function bookWorkspace(workspaceId, startTime, endTime, callback) {
 
 // Add a workspace to a specific user's favorites (does not create a workspace booking)
 export function favoriteWorkspace(workspaceId) {
-  debugger
   return (dispatch) => {
     return fetch(favoritesURL, {
       method: "POST",
@@ -98,6 +112,6 @@ export function favoriteWorkspace(workspaceId) {
       })
     })
     .then(res => res.json())
-    .then(json => {debugger})
+    .then(json => console.log(json))
   }
 }

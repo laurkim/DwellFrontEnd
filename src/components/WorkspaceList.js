@@ -8,6 +8,7 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 
 const WorkspaceList = props => {
   const workspaces = props.workspaces.map(workspace => {
+    console.log("props are", props);
     return <WorkspaceDetail key={workspace.id} workspace={workspace} />
   });
 
@@ -24,8 +25,10 @@ const WorkspaceList = props => {
 }
 
 function mapStateToProps(state) {
+  debugger
   return {
-    workspaces: state.workspaces
+    workspaces: state.workspaces,
+    favorites: state.user.favorites
   }
 };
 
