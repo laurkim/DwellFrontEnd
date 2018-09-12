@@ -6,8 +6,8 @@ import Button from '@material-ui/core/Button';
 import '../App.css';
 
 class BookingForm extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
 
     this.state = {
       date: new Date(),

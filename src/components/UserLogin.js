@@ -8,8 +8,8 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
 class UserLogin extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
 
     this.state = {
       username: '',

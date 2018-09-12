@@ -16,8 +16,8 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Modal from '@material-ui/core/Modal';
 
 class WorkspaceDetail extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       open: false,
@@ -56,6 +56,7 @@ class WorkspaceDetail extends Component {
   }
 
   render() {
+    console.log("props are", this.props);
     const { name, image_url, yelp_url, rating, address_one, address_two, city, zip_code, latitude, longitude, phone } = this.props.workspace
     const bookingForm = <BookingForm addBooking={this.addBooking} confirmed={this.state.confirmed} response={this.state.response} />
     const bookingMessage = <BookingResponse response={this.state.response} />
@@ -105,6 +106,12 @@ class WorkspaceDetail extends Component {
   }
 };
 
+function mapStateToProps(state) {
+  return {
+    favorites: state.user.favorites
+  }
+};
+
 function mapDispatchToProps(dispatch) {
   return {
     bookWorkspace: (workspaceId, startTime, endTime, callback) => dispatch(bookWorkspace(workspaceId, startTime, endTime, callback)),
@@ -112,4 +119,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(null, mapDispatchToProps)(WorkspaceDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(WorkspaceDetail);
