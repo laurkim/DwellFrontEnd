@@ -93,20 +93,10 @@
   font-weight: 300 !important
 }
 
-.heart-icon {
-
+.favorite {
+  color: #FF4C4C !important
 }
 
-.heart-icon:visited {
-  color: red !important;
-}
-
-.copied {
-  display: flex !important;
-  padding: 0 !important;
-  flex-wrap: wrap !important;
-  overflow-y: auto !important;
-  list-style: none !important;
-  -webkit-overflow-scrolling: touch !important;
-  height: 50vh !important;
+.unfavorite {
+  color: #707070 !important;
 }

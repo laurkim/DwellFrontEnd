@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bookWorkspace, favoriteWorkspace } from '../Redux/actions/index.js';
+import { bookWorkspace, favoriteWorkspace, unfavoriteWorkspace } from '../Redux/actions/index.js';
 import BookingForm from './BookingForm.js';
 import BookingResponse from './BookingResponse.js';
 import '../App.css'
@@ -22,8 +22,20 @@ class WorkspaceDetail extends Component {
     this.state = {
       open: false,
       confirmed: false,
-      response: null
+      response: null,
+      favorite: false,
+      favoriteId: null
     }
+  }
+
+  componentDidMount() {
+    this.props.favorites.forEach(favorite => {
+      if (favorite.id === this.props.workspace.id) {
+        this.setState({
+          favorite: true, favoriteId: favorite.id
+        })
+      }
+    })
   }
 
   handleOpen = () => {
@@ -51,15 +63,24 @@ class WorkspaceDetail extends Component {
     })
   }
 
-  addToFavorites = () => {
-    this.props.favoriteWorkspace(this.props.workspace.id)
+  alterFavorites = () => {
+    if (this.state.favorite) {
+      this.props.unfavoriteWorkspace(this.state.favoriteId, this.props.workspace.id)
+    } else {
+      this.props.favoriteWorkspace(this.props.workspace.id)
+    }
+
+    this.setState({
+      favorite: !this.state.favorite
+    })
   }
 
   render() {
-    console.log("props are", this.props);
+    console.log("state is", this.state.favorite);
     const { name, image_url, yelp_url, rating, address_one, address_two, city, zip_code, latitude, longitude, phone } = this.props.workspace
     const bookingForm = <BookingForm addBooking={this.addBooking} confirmed={this.state.confirmed} response={this.state.response} />
     const bookingMessage = <BookingResponse response={this.state.response} />
+    const favoriteColor = this.state.favorite ? "favorite" : "unfavorite"
     return (
       <Card className="card">
         <CardHeader
@@ -99,7 +120,7 @@ class WorkspaceDetail extends Component {
           </Typography>
         </CardContent>
         <IconButton aria-label="Add to favorites">
-          <FavoriteIcon onClick={this.addToFavorites} />
+          <FavoriteIcon className={favoriteColor} onClick={this.alterFavorites} />
         </IconButton>
       </Card>
     )
@@ -115,7 +136,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     bookWorkspace: (workspaceId, startTime, endTime, callback) => dispatch(bookWorkspace(workspaceId, startTime, endTime, callback)),
-    favoriteWorkspace: workspaceId => dispatch(favoriteWorkspace(workspaceId))
+    favoriteWorkspace: workspaceId => dispatch(favoriteWorkspace(workspaceId)),
+    unfavoriteWorkspace: (favoriteId, workspaceId) => dispatch(unfavoriteWorkspace(favoriteId, workspaceId))
   }
 }
 

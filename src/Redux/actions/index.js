@@ -68,7 +68,7 @@ export function fetchUser(token) {
   };
 };
 
-// Fetch all existing workspaces from Rails API to render for a user to choose from
+// Fetch all existing workspaces from Rails API to render for the current user to choose from
 export function fetchWorkspaces(dispatch) {
   return (dispatch) => {
     return fetch(workspaceURL, {
@@ -81,7 +81,7 @@ export function fetchWorkspaces(dispatch) {
   }
 };
 
-// Create a new booking for a workspace for a specific user
+// Create a new booking for a workspace for the current user
 export function bookWorkspace(workspaceId, startTime, endTime, callback) {
   return (dispatch) => {
     return fetch(bookingsURL, {
@@ -100,7 +100,7 @@ export function bookWorkspace(workspaceId, startTime, endTime, callback) {
   }
 }
 
-// Add a workspace to a specific user's favorites (does not create a workspace booking)
+// Add a workspace to the current user's favorites (does not create a workspace booking)
 export function favoriteWorkspace(workspaceId) {
   return (dispatch) => {
     return fetch(favoritesURL, {
@@ -114,5 +114,15 @@ export function favoriteWorkspace(workspaceId) {
     })
     .then(res => res.json())
     .then(json => console.log(json))
+  }
+}
+
+// Remove a workspace from the current user's favorites (does not create a workspace booking)
+export function unfavoriteWorkspace(favoriteId, workspaceId) {
+  return (dispatch) => {
+    return fetch(`${favoritesURL}/${favoriteId}`, {
+      method: "DELETE",
+      headers: Headers()
+    })
   }
 }
