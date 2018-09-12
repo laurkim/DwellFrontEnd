@@ -25,12 +25,17 @@
   font-family: 'Raleway';
 }
 
+#header {
+  height: 10vh !important;
+}
+
 #workspace-container {
   display: flex !important;
   justify-content: center !important;
   flex-wrap: wrap !important;
   width: 160vw !important;
   padding: 0vw 10vw 0vw !important;
+  height: 100vh !important;
 }
 
 .card {
@@ -94,4 +99,14 @@
 
 .heart-icon:visited {
   color: red !important;
+}
+
+.copied {
+  display: flex !important;
+  padding: 0 !important;
+  flex-wrap: wrap !important;
+  overflow-y: auto !important;
+  list-style: none !important;
+  -webkit-overflow-scrolling: touch !important;
+  height: 50vh !important;
 }

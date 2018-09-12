@@ -12,8 +12,8 @@ const WorkspaceList = props => {
   });
 
   return (
-    <GridList cellHeight={'100vh'}>
-      <GridListTile key="Subheader" cols={2}>
+    <GridList>
+      <GridListTile key="Subheader" cols={2} id="header">
         <ListSubheader component="div">Workspaces</ListSubheader>
       </GridListTile>
       <div id="workspace-container">

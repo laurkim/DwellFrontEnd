@@ -14,18 +14,12 @@ class UserAuthorization extends Component {
 
   render() {
     return (
-      <div>
-        <WorkspaceList />
-      </div>
+      <WorkspaceList />
     )
   }
 }
 
 function mapDispatchToProps(dispatch) {
-  // return {
-  //   fetchWorkspaces: () => dispatch(fetchWorkspaces()),
-  //   fetchUser:  => dispatch(fetchUser(token))
-  // };
   return bindActionCreators({ fetchWorkspaces, fetchUser }, dispatch)
 }
 
