@@ -1,10 +1,10 @@
 import { Headers } from '../../adapters/Headers.js';
-const registrationURL = "http://localhost:3000/api/v1/register";
-const loginURL = "http://localhost:3000/api/v1/login";
-const userURL = "http://localhost:3000/api/v1/fetch_user";
-const workspaceURL = "http://localhost:3000/api/v1/workspaces";
-const bookingsURL = "http://localhost:3000/api/v1/bookings";
-const favoritesURL = "http://localhost:3000/api/v1/favorites";
+const registrationURL = "https://dwell-api.herokuapp.com/api/v1/register";
+const loginURL = "https://dwell-api.herokuapp.com/api/v1/login";
+const userURL = "https://dwell-api.herokuapp.com/api/v1/fetch_user";
+const workspaceURL = "https://dwell-api.herokuapp.com/api/v1/workspaces";
+const bookingsURL = "https://dwell-api.herokuapp.com/api/v1/bookings";
+const favoritesURL = "https://dwell-api.herokuapp.com/api/v1/favorites";
 
 // Based on User Input from the Registration Form, make a request to the Rails API to create a new user
 export function registerUser(registrationInput, history) {
