@@ -56,7 +56,7 @@ class UserRegistration extends Component {
         <form onSubmit={this.registerUser} className="form-break">
           <TextField
             className="form-input"
-            autocomplete="off"
+            autoComplete="off"
             name="first_name"
             label="First Name"
             value={this.state.first_name}
@@ -65,7 +65,7 @@ class UserRegistration extends Component {
           <br/>
           <TextField
             className="form-input"
-            autocomplete="off"
+            autoComplete="off"
             name="last_name"
             label="Last Name"
             value={this.state.last_name}
@@ -74,7 +74,7 @@ class UserRegistration extends Component {
           <br/>
           <TextField
             className="form-input"
-            autocomplete="off"
+            autoComplete="off"
             name="username"
             label="Username"
             value={this.state.username}
@@ -83,7 +83,7 @@ class UserRegistration extends Component {
           <br/>
           <TextField
             className="form-input"
-            autocomplete="off"
+            autoComplete="off"
             type="password"
             name="password"
             label="Password"
@@ -93,7 +93,7 @@ class UserRegistration extends Component {
           <br/>
           <TextField
             className="form-input"
-            autocomplete="off"
+            autoComplete="off"
             type="password"
             name="password_confirmation"
             label="Password Confirmation"
@@ -103,7 +103,7 @@ class UserRegistration extends Component {
           <br/>
           <TextField
             className="form-input"
-            autocomplete="off"
+            autoComplete="off"
             name="email"
             label="Email"
             value={this.state.email}
