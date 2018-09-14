@@ -12,6 +12,7 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Modal from '@material-ui/core/Modal';
 
@@ -31,11 +32,7 @@ class WorkspaceDetail extends Component {
   componentDidMount() {
     // Iterate through the user's favorites after they have loaded from...
     // ... Redux store to set local state for the workspace in props to...
-    // ... conditionally render the heart icon to show whether the user...
-    // ... has added the workspace to their favorites
-    // console.log("component did update");
-    // console.log("props are", this.props);
-    // console.log("------");
+    // ... conditionally render the color of the heart icon
     if (this.props.favorites !== undefined && this.props.favorites.length > 0) {
       this.props.favorites.forEach(favorite => {
         if (favorite.workspace_id === this.props.workspace.id) {
@@ -85,8 +82,14 @@ class WorkspaceDetail extends Component {
     })
   }
 
+  yelpRedirect = () => {
+    let url = this.props.workspace.yelp_url;
+    let newTab = window.open(url, '_blank');
+    newTab.focus();
+  }
+
   render() {
-    const { name, image_url, yelp_url, rating, address_one, address_two, city, zip_code, latitude, longitude, phone } = this.props.workspace
+    const { name, image_url, address_one, city, zip_code, latitude, longitude, phone } = this.props.workspace
     const bookingForm = <BookingForm addBooking={this.addBooking} confirmed={this.state.confirmed} response={this.state.response} />
     const bookingMessage = <BookingResponse response={this.state.response} />
     const favoriteColor = this.state.favorite ? "favorite" : "unfavorite"
@@ -130,6 +133,9 @@ class WorkspaceDetail extends Component {
         </CardContent>
         <IconButton aria-label="Add to favorites">
           <FavoriteIcon className={favoriteColor} onClick={this.alterFavorites} />
+        </IconButton>
+        <IconButton aria-label="Open yelp url">
+          <ShareIcon onClick={this.yelpRedirect} />
         </IconButton>
       </Card>
     )
