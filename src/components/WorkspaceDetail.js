@@ -33,9 +33,12 @@ class WorkspaceDetail extends Component {
     // ... Redux store to set local state for the workspace in props to...
     // ... conditionally render the heart icon to show whether the user...
     // ... has added the workspace to their favorites
-    if (this.props.favorites.length > 0) {
+    // console.log("component did update");
+    // console.log("props are", this.props);
+    // console.log("------");
+    if (this.props.favorites !== undefined && this.props.favorites.length > 0) {
       this.props.favorites.forEach(favorite => {
-        if (favorite.id === this.props.workspace.id) {
+        if (favorite.workspace_id === this.props.workspace.id) {
           this.setState({
             favorite: true,
             favoriteId: favorite.id
@@ -83,7 +86,6 @@ class WorkspaceDetail extends Component {
   }
 
   render() {
-    console.log("state is", this.state.favorite);
     const { name, image_url, yelp_url, rating, address_one, address_two, city, zip_code, latitude, longitude, phone } = this.props.workspace
     const bookingForm = <BookingForm addBooking={this.addBooking} confirmed={this.state.confirmed} response={this.state.response} />
     const bookingMessage = <BookingResponse response={this.state.response} />

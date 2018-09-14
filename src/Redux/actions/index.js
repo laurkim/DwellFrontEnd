@@ -101,7 +101,7 @@ export function bookWorkspace(workspaceId, startTime, endTime, callback) {
 }
 
 // Add a workspace to the current user's favorites (does not create a workspace booking)
-export function favoriteWorkspace(favoriteId, workspaceId) {
+export function favoriteWorkspace(workspaceId) {
   return (dispatch) => {
     return fetch(favoritesURL, {
       method: "POST",

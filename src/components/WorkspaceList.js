@@ -2,9 +2,6 @@ import React from 'react';
 import { connect }  from 'react-redux';
 import '../App.css'
 import WorkspaceDetail from './WorkspaceDetail.js';
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
-import ListSubheader from '@material-ui/core/ListSubheader';
 
 const WorkspaceList = props => {
   const workspaces = props.workspaces.map(workspace => {
@@ -12,14 +9,9 @@ const WorkspaceList = props => {
   });
 
   return (
-    <GridList>
-      <GridListTile key="Subheader" cols={2} id="header">
-        <ListSubheader component="div">Workspaces</ListSubheader>
-      </GridListTile>
-      <div id="workspace-container">
-        {props.workspaces.length > 0 ? workspaces : null}
-      </div>
-    </GridList>
+    <div id="workspace-container">
+      {props.workspaces.length > 0 ? workspaces : null}
+    </div>
   )
 }
 
