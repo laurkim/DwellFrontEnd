@@ -21,6 +21,7 @@ export function registerUser(registrationInput, history) {
     })
     .then(res => res.json())
     .then(json => {
+      console.log("json is", json);
       localStorage.setItem("token", json.token);
       dispatch({ type: 'CREATE_USER', payload: json });
       history.push('/login');
