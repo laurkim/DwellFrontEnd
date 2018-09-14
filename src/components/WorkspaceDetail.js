@@ -29,13 +29,20 @@ class WorkspaceDetail extends Component {
   }
 
   componentDidMount() {
-    this.props.favorites.forEach(favorite => {
-      if (favorite.id === this.props.workspace.id) {
-        this.setState({
-          favorite: true, favoriteId: favorite.id
-        })
-      }
-    })
+    // Iterate through the user's favorites after they have loaded from...
+    // ... Redux store to set local state for the workspace in props to...
+    // ... conditionally render the heart icon to show whether the user...
+    // ... has added the workspace to their favorites
+    if (this.props.favorites.length > 0) {
+      this.props.favorites.forEach(favorite => {
+        if (favorite.id === this.props.workspace.id) {
+          this.setState({
+            favorite: true,
+            favoriteId: favorite.id
+          })
+        }
+      })
+    }
   }
 
   handleOpen = () => {
