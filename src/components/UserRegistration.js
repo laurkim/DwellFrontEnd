@@ -114,7 +114,7 @@ class UserRegistration extends Component {
             Create Account
           </Button>
         </form>
-        <p>Already have an account? Click <Link to="/register">here</Link> to login.</p>
+        <p>Already have an account? Click <Link to="/login">here</Link> to login.</p>
       </div>
     )
   }

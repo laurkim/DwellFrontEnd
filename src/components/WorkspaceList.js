@@ -9,7 +9,7 @@ const WorkspaceList = props => {
   });
 
   return (
-    <div id="workspace-container">
+    <div id="main-container">
       {props.workspaces.length > 0 ? workspaces : null}
     </div>
   )

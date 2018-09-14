@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { fetchUser, fetchWorkspaces } from '../Redux/actions/index.js';
 import '../App.css';
 import WorkspaceList from '../components/WorkspaceList.js';
+import HamburgerMenu from '../components/HamburgerMenu.js';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import Typography from '@material-ui/core/Typography';
@@ -27,16 +28,7 @@ class UserAuthorization extends Component {
             DWELL
           </Typography>
         </GridListTile>
-        <div id="hamburger-menu">
-          <input type="checkbox" />
-          <span></span>
-          <span></span>
-          <span></span>
-          <ul id="menu">
-            <a href="/home"><li>Home</li></a>
-            <a href="/" onClick={this.logoutUser}><li>Log Out</li></a>
-          </ul>
-        </div>
+        <HamburgerMenu />
         <WorkspaceList />
       </GridList>
     )

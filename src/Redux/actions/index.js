@@ -76,10 +76,23 @@ export function fetchWorkspaces(dispatch) {
     })
     .then(res => res.json())
     .then(json => {
-      dispatch({ type: "GET_WORKSPACES", payload: json})
+      dispatch({ type: "GET_WORKSPACES", payload: json })
     })
   }
 };
+
+// Retrive all of the current user's bookings
+export function fetchBookings() {
+  return (dispatch) => {
+    return fetch(bookingsURL, {
+      headers: Headers()
+    })
+    .then(res => res.json())
+    .then(json => {
+      dispatch({ type: "GET_BOOKINGS", payload: json })
+    })
+  }
+}
 
 // Create a new booking for a workspace for the current user
 export function bookWorkspace(workspaceId, startTime, endTime, callback) {

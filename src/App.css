@@ -34,7 +34,7 @@
   padding: 5vh;
 }
 
-#workspace-container {
+#main-container {
   display: flex !important;
   justify-content: center !important;
   flex-wrap: wrap !important;
@@ -46,7 +46,8 @@
 #hamburger-menu {
   display: block;
   position: fixed;
-  margin-top: 25vh;
+  margin-top: 22vh;
+  width: 20px !important;
   left: 40px;
   z-index: 1;
   -webkit-user-select: none;
@@ -156,6 +157,10 @@ a:hover {
   border: 25px solid #FFFFFF;
 }
 
+.card-booking {
+  max-height: 515px !important;
+}
+
 .modal {
   position: relative;
   margin: 0 auto;
@@ -165,7 +170,7 @@ a:hover {
 }
 
 .submit-button {
-  background-color: #B2DFDB !important;
+  background-color: #CD626A !important;
   color: #FFFFFF !important;
   margin: 3vh 0vh !important;
   font-family: 'Raleway' !important;

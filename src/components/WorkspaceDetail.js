@@ -89,7 +89,7 @@ class WorkspaceDetail extends Component {
   }
 
   render() {
-    const { name, image_url, address_one, city, zip_code, latitude, longitude, phone } = this.props.workspace
+    const { name, image_url, address_one, city, zip_code, phone } = this.props.workspace
     const bookingForm = <BookingForm addBooking={this.addBooking} confirmed={this.state.confirmed} response={this.state.response} />
     const bookingMessage = <BookingResponse response={this.state.response} />
     const favoriteColor = this.state.favorite ? "favorite" : "unfavorite"
