@@ -6,7 +6,7 @@
 
 .user-form .form-title {
   font-family: 'Raleway';
-  padding-top: 20vh;
+  padding-top: 25vh;
 }
 
 .user-form .form-break {
@@ -164,7 +164,7 @@ a:hover {
 .modal {
   position: relative;
   margin: 0 auto;
-  top: 40vh;
+  top: 30vh;
   width: 30vw;
   background: #FFFFFF;
 }
