@@ -5,6 +5,7 @@ import '../App.css';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 
 class UserRegistration extends Component {
   constructor() {
@@ -113,6 +114,7 @@ class UserRegistration extends Component {
             Create Account
           </Button>
         </form>
+        <p>Already have an account? Click <Link to="/register">here</Link> to login.</p>
       </div>
     )
   }
